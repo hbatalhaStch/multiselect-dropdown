@@ -3,21 +3,21 @@ library multiselect_dropdown;
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:multi_dropdown/models/network_config.dart';
 import 'package:multi_dropdown/widgets/hint_text.dart';
 import 'package:multi_dropdown/widgets/selection_chip.dart';
 import 'package:multi_dropdown/widgets/single_selected_item.dart';
-import 'package:http/http.dart' as http;
 
+import 'enum/app_enums.dart';
 import 'models/chip_config.dart';
 import 'models/value_item.dart';
-import 'enum/app_enums.dart';
 
 export 'enum/app_enums.dart';
 export 'models/chip_config.dart';
-export 'models/value_item.dart';
 export 'models/network_config.dart';
+export 'models/value_item.dart';
 
 typedef OnOptionSelected<T> = void Function(List<ValueItem<T>> selectedOptions);
 
@@ -779,7 +779,7 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                                 widget.dropdownBackgroundColor ?? Colors.white,
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: TextFormField(
+                              child: TextField(
                                 controller: searchController,
                                 onTapOutside: (_) {},
                                 scrollPadding: EdgeInsets.only(
@@ -804,8 +804,8 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                                   focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
                                         widget.fieldBorderRadius ?? 12),
-                                    borderSide: BorderSide(
-                                      color: Theme.of(context).primaryColor,
+                                    borderSide: const BorderSide(
+                                      color: Color.fromRGBO(29, 155, 240, 1),
                                       width: 0.8,
                                     ),
                                   ),
